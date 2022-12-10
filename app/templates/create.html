@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1> Add a new recipe! </h1>
+        </div>
+        <div class="col-4"  style="text-align: right;">
+            <a href="/welcome">Back to recipes</a>
+        </div>
+    </div>
+
+    <form action="/create" method="POST">
+        <div>
+            <input type="hidden" name="user_id" value="{{id}}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="name" name="name"  class="form-control" id="name" aria-describedby="nameHelp">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" name="description" class="form-control" id="description"  rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions</label>
+            <textarea type="text"  name="instructions" class="form-control" id="instructions"  rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date cooked</label>
+            <input type="datetime"  name="date" class="form-control" id="date" ></input>
+        </div>
+        <div class="mb-3">
+            <label for="under_thirty" class="form-label">Under 30 minutes?</label>
+            <input type="radio" name="under_thirty"  class="form-radio" id="under_thirty" value="yes">yes</input>
+            <input type="radio" name="under_thirty"  class="form-radio" id="under_thirty" value="no">no</input>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+{%endblock%}

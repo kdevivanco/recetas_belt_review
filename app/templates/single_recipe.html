@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="row p-3">
+    <div class="col-6">
+        <h2> Welcome, {{username}}</h2>
+    </div>
+    <div class="col-6"  style="text-align: right;">
+        <a href="/welcome">back to recipes</a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="recipe-title">{{recipe.name}}</h2>
+        </div>
+        <div class="col-6"  style="text-align: right;">
+            <div class="recipe-author">Posted by: {{author}}</div>
+        </div>
+    </div>
+    <div class="recipe-box">
+        <div class="row">
+            <div class="col-4">
+                {{recipe.description}}
+            </div>
+            <div class="col-8">
+                {{recipe.instructions}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Under thirty minutes?
+            </div>
+            <div class="col-8">{{recipe.under_thirty}}</div>
+        </div>
+        <div class="row">
+            <div class="col-4">Date Made</div>
+            <div class="col-8">{{recipe.date_cooked}}</div>
+        </div>
+    </div>
+</div>
+{%endblock%}

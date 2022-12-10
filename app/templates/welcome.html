@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<div class="container">
+    <h2> Welcome {{username}}</h2>
+    <div class="row">
+        <div class="col-6">
+            <p> All Posted recipes: </p>
+        </div>
+        <div class="col-6"  style="text-align: right;">
+            <a href="/create">+ Create</a>
+        </div>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Under</th>
+                <th>Posted by</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        {%for recipe in recipes%}
+            <tr>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.under_thirty}}</td>
+                <td>{{recipe.first_name}} {{recipe.last_name}}</td>
+                {%if recipe.first_name == username %}
+                <td>
+                    <a href="/edit/{{recipe.id}}">Edit</a>
+                    |<a href="/show/{{recipe.id}}">Show</a>|
+                    <a href="/delete/{{recipe.id}}">Delete</a>
+                </td>
+                {%else%}
+                <td>
+                    <a href="/show/{{recipe.id}}">show</a>
+                </td>
+                {%endif%}
+                
+
+            </tr>
+        {%endfor%}
+        <tbody>
+    
+        </tbody>
+    </table>
+</div>
+
+{%endblock%}

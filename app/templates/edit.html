@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1> Edit recipe </h1>
+        </div>
+        <div class="col-4"  style="text-align: right;">
+            <a href="/welcome">Back to recipes</a>
+        </div>
+    </div>
+    <form action="/edit/{{recipe.id}}" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="name" class="form-control" id="name" name = "name" aria-describedby="nameHelp"  required value="{{recipe.name}}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" class="form-control" id="description"  rows="3" name = "description" placeholder="{{recipe.description}}" required value="{{recipe.description}}"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions </label>
+            <textarea type="text" class="form-control" id="instructions"  rows="3" name = "instructions" placeholder ="{{recipe.instructions}}" required value="{{recipe.description}}"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date cooked</label>
+            <input type="datetime" class="form-control" id="date" name = "date" required value= "{{recipe.date_cooked}}"></input>
+        </div>
+        <div class="mb-3">
+            <label for="under_thirty" class="form-label">Under 30 minutes?</label>
+            <input type="radio" class="form-radio" name="under_thirty" required value="yes">yes</input>
+            <input type="radio" class="form-radio" name="under_thirty" required value="no">no</input>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+{%endblock%}
